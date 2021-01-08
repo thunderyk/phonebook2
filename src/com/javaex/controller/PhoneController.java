@@ -35,11 +35,11 @@ public class PhoneController extends HttpServlet {
 			request.setAttribute("personList", personList);
 			
 			//jsp에 포워드 시킨다.
-			RequestDispatcher rd = request.getRequestDispatcher("./list.jsp"); 
+			RequestDispatcher rd = request.getRequestDispatcher("./WEB-INF/list.jsp"); 
 			rd.forward(request, response);
 		}else if(action.equals("writeForm")) {
 			//jsp에 포워드 시킨다.
-			RequestDispatcher rd = request.getRequestDispatcher("./writeForm.jsp"); 
+			RequestDispatcher rd = request.getRequestDispatcher("./WEB-INF/writeForm.jsp"); 
 			rd.forward(request, response);
 		}else if(action.equals("delete")) {
 			int personId = Integer.parseInt(request.getParameter("id"));
@@ -53,7 +53,13 @@ public class PhoneController extends HttpServlet {
 			//아마 cookie로 남아 있어서 남을 수 있는 거 같은데 이렇게 해도 괜찮은 것일까?
 			//아니면 attribute로 넘겨야 할까?
 			// -> 결론 파라미터 영역에 계속 남아 있는 것임
-			RequestDispatcher rd = request.getRequestDispatcher("./updateForm.jsp"); 
+			//그러면 attribute로 넘겨야 하는건가? 우선 attribute로 넘김
+			int id = Integer.parseInt(request.getParameter("id"));
+			PhoneDao phoneDao = new PhoneDao();
+			PersonVo personVo = phoneDao.getPerson(id);
+			request.setAttribute("personVo", personVo);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("./WEB-INF/updateForm.jsp"); 
 			rd.forward(request, response);
 		}
 		
@@ -83,7 +89,7 @@ public class PhoneController extends HttpServlet {
 			request.setAttribute("personList", personList);
 			
 			//jsp에 포워드 시킨다.
-			RequestDispatcher rd = request.getRequestDispatcher("./list.jsp"); 
+			RequestDispatcher rd = request.getRequestDispatcher("./WEB-INF/list.jsp"); 
 			rd.forward(request, response);
 		}else if(action.equals("insert")) {
 			String name = request.getParameter("name");

@@ -3,9 +3,7 @@
 <%@ page import="com.javaex.vo.PersonVo" %>
 
 <%
-	int id = Integer.parseInt(request.getParameter("id"));
-	PhoneDao phoneDao = new PhoneDao();
-	PersonVo personVo = phoneDao.getPerson(id);
+	PersonVo personVo = (PersonVo)request.getAttribute("personVo");
 %>
 <!DOCTYPE html>
 <html>
@@ -33,7 +31,7 @@
 			<input type="text" id="txt-company" name="company" value="<%=personVo.getCompany()%>">
 		</div>
 		<div>
-			<input type="hidden" value="<%=id%>" name="id">
+			<input type="hidden" value="<%=personVo.getPerson_id()%>" name="id">
 		</div>
 		<input type="hidden" value="update" name="action">
 		<button type="submit">수정</button>
