@@ -17,7 +17,8 @@
 	<h1>전화 번호 수정</h1>
 	<p>전화번호를 수정하려면<br>
 	아래의 항목을 기입하고 "수정" 버튼을 클릭하세요. </p>
-	
+	<!-- 일부로 post 방식을 사용한 것임 get 방식은 이해 했으니 post를 공부해보기 위해서 사용 -->
+	<!-- PhoneController에서 어떻게 post가 사용 되는지 궁긍해서 사용해봄 -->
 	<form action="PhoneController" method="post" accept-charset="utf-8">
 		<div>
 			<label for="txt-name">이름(name)</label>

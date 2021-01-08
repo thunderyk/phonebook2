@@ -52,6 +52,7 @@ public class PhoneController extends HttpServlet {
 			//궁금증 list.jsp에서 보낸 id의 값을 여기서 받지 않아도 updateForm에서 받을 수 있다.
 			//아마 cookie로 남아 있어서 남을 수 있는 거 같은데 이렇게 해도 괜찮은 것일까?
 			//아니면 attribute로 넘겨야 할까?
+			// -> 결론 파라미터 영역에 계속 남아 있는 것임
 			RequestDispatcher rd = request.getRequestDispatcher("./updateForm.jsp"); 
 			rd.forward(request, response);
 		}
