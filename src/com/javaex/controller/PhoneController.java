@@ -17,7 +17,8 @@ import com.javaex.vo.PersonVo;;
 
 @WebServlet("/PhoneController")
 public class PhoneController extends HttpServlet {
-	
+	//테스트를 위해서 짜봄 -> guestbook에서는 post로만 짬
+	//한쪽에서만 짜야한다는 것을 인지함
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		String action = request.getParameter("action");
